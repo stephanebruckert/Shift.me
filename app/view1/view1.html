@@ -1,1 +1,15 @@
-<p>This is the partial for view 1.</p>
+<div class="container bs-docs-container col-md-10 col-md-offset-1">
+	<h3>{{ dates[0].date | date:'MMMM'}}</h3>
+	<table class="table">
+	 	<tr>
+	 		<td ng-repeat="day in dates" ng-mouseenter="changeColor(day)">
+	 			{{ day.date | date:'EEEE, dd' }}
+			</td>
+	 	</tr>
+	 	<tr>
+	 		<td ng-repeat="day in dates" ng-mouseenter="changeColor(day)">
+	 			<i class="fa fa-{{ day.icon }} fa-1x"></i>
+			</td>
+	 	</tr>
+ 	</table>
+</div>
