@@ -11,10 +11,12 @@ angular.module('myApp.view1', ['ngRoute'])
 
 .controller('View1Ctrl', ['$scope', function($scope) {
 	var today = new Date();
+	var firstDay = new Date(today);
+	firstDay.setDate(today.getDate()-4);
 	$scope.dates = [];
 	for (var i = 0; i < 10; i++) {
-		var tomorrow = new Date(today);
-		tomorrow.setDate(today.getDate()+i);
+		var tomorrow = new Date(firstDay);
+		tomorrow.setDate(firstDay.getDate()+i);
 		$scope.dates.push({date:tomorrow,i:i,icon:"question"});
 	}
 
