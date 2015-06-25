@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.view1', ['ngRoute'])
+angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/view1', {
@@ -25,13 +25,13 @@ angular.module('myApp.view1', ['ngRoute'])
 			$scope.dates[(day.i + i) % 10].icon = "home";
 		}
 		for(; i < 6; i++) {
-			$scope.dates[(day.i + i) % 10].icon = "coffee";
+			$scope.dates[(day.i + i) % 10].icon = "morning";
 		}
 		for(; i < 8; i++) {
-			$scope.dates[(day.i + i) % 10].icon = "sun-o";
+			$scope.dates[(day.i + i) % 10].icon = "afternoon";
 		}
 		for(; i < 10; i++) {
-			$scope.dates[(day.i + i) % 10].icon = "moon-o";
+			$scope.dates[(day.i + i) % 10].icon = "night";
 		}
 	};
 }]);

@@ -1,15 +1,23 @@
 <div class="container bs-docs-container col-md-10 col-md-offset-1">
-	<h3>{{ dates[0].date | date:'MMMM'}}</h3>
+	<h3>What's your work plan this week?</h3>
 	<table class="table">
 	 	<tr>
+	 		<td><h4>{{ dates[0].date | date:'MMMM'}}</h4></td>
 	 		<td ng-repeat="day in dates" ng-mouseenter="changeColor(day)">
-	 			{{ day.date | date:'EEEE, dd' }}
+	 			{{ day.date | date:'EEEE' }}<br />{{ day.date | date:'dd' }}
 			</td>
 	 	</tr>
 	 	<tr>
+	 		<td></td>
 	 		<td ng-repeat="day in dates" ng-mouseenter="changeColor(day)">
-	 			<i class="fa fa-{{ day.icon }} fa-1x"></i>
+	 			<div class="icon {{ day.icon }}"></div>
 			</td>
 	 	</tr>
  	</table>
+</div>
+<div class="container bs-docs-container col-md-10 col-md-offset-1">
+ 	<h5>Your calendar</h5>
+ 	<div style="display:inline-block; min-height:290px;">
+      <datepicker ng-model="dt" min-date="minDate" show-weeks="false" class="well well-sm" custom-class="getDayClass(date, mode)"></datepicker>
+    </div>
 </div>

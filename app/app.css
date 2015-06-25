@@ -1,5 +1,13 @@
 /* app css stylesheet */
 
+h3 {
+  margin-bottom: 40px;
+}
+
+h5 {
+  color: #31b0d5;
+}
+
 .menu {
   list-style: none;
   border-bottom: 0.1em solid black;
@@ -30,5 +38,55 @@
 }
 
 .table td {
-   text-align: center;   
+   text-align: center;
+   padding: 0px !important;
+   width:9%;
 }
+
+.container {
+  text-align:center;
+  margin-bottom: 30px;
+  margin-top: 40px;
+}
+
+.icon {
+    position: relative;
+       height: 40px;
+
+}
+ 
+.icon:before {
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    font-size: 19px;
+    text-align:center;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    width:100%;
+    color:white;
+}
+
+.question:before {
+  content: "\f128";
+  background-color: #827AB6;
+}
+.home:before {
+  content: "\f015";
+  background-color: #A1D979;
+}
+.morning:before {
+  content: "\f0f4";
+  background-color: #F9A80C;
+}
+.afternoon:before {
+  content: "\f185";
+  background-color: #EFE6B0;
+}
+.night:before {
+  content: "\f186";
+  background-color: #827AB6;
+}
+
