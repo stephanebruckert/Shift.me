@@ -75,11 +75,11 @@ h5 {
 }
 .home:before {
   content: "\f015";
-  background-color: #A1D979;
+  background-color: limegreen;
 }
 .morning:before {
   content: "\f0f4";
-  background-color: #F9A80C;
+  background-color: orange;
 }
 .afternoon:before {
   content: "\f185";
@@ -90,3 +90,27 @@ h5 {
   background-color: #827AB6;
 }
 
+.home-circle button span {
+    background-color: limegreen;
+    border-radius: 32px;
+  }
+  
+.morning-circle button span {
+  background-color: orange;
+  border-radius: 32px;
+}
+
+  .afternoon-circle button span {
+    background-color: #EFE6B0;
+    border-radius: 32px;
+  }
+
+    .night-circle button span {
+    background-color: #827AB6;
+    border-radius: 32px;
+  }
+  .text-muted{
+    opacity: 0.2;
+    border-radius: 32px;
+    color: black;
+}

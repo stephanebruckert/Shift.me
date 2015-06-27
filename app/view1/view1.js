@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap'])
+angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap', 'angularMoment'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/view1', {
@@ -11,9 +11,12 @@ angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap'])
 
 .controller('View1Ctrl', ['$scope', function($scope) {
 	var today = new Date();
+	today.setHours(0,0,0,0);
+
 	var firstDay = new Date(today);
 	firstDay.setDate(today.getDate()-4);
 	$scope.dates = [];
+
 	for (var i = 0; i < 10; i++) {
 		var tomorrow = new Date(firstDay);
 		tomorrow.setDate(firstDay.getDate()+i);
@@ -34,4 +37,41 @@ angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap'])
 			$scope.dates[(day.i + i) % 10].icon = "night";
 		}
 	};
+  
+	var oneDay = 24*60*60*1000;
+
+	$scope.getDayClass = function(date, mode) {
+		if (mode === 'day') {
+			var dayToCheck = new Date(date);
+			dayToCheck.setHours(0,0,0,0);
+			if (dayToCheck.getTime() >= today.getTime()) {
+				var diffDays = Math.round((dayToCheck.getTime() - today.getTime())/(oneDay));
+
+				switch(diffDays % 10) {
+					case 0:
+					case 1:
+					case 2:
+					case 3:
+						return 'home-circle';
+					case 4:
+					case 5:
+						return 'morning-circle';
+					case 6:
+					case 7:
+						return 'afternoon-circle';
+					case 8:
+					case 9:
+						return 'night-circle';
+					default:
+						return 'hey';
+				} 
+			}
+		}
+	};
+
+	function getPosition() {
+	
+	}
+
+
 }]);
