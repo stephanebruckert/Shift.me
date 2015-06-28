@@ -2,6 +2,7 @@
 
 body {
   font-family: Helvetica;
+  background-color:#fff;
 }
 
 h3 {
@@ -71,6 +72,8 @@ h5 {
   left: 0;
   width:100%;
   color:white;
+  border: 1px solid white;
+  border-radius: 5px;
 }
 
 .question:before {
@@ -130,4 +133,8 @@ button span {
   opacity: 0.2;
   border-radius: 32px;
   color: black;
+}
+
+.days:nth-child(6) {
+  font-weight: 900;
 }
