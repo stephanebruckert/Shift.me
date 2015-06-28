@@ -23,7 +23,9 @@ angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap', 'angularMoment'])
 		$scope.dates.push({date:tomorrow,i:i,icon:"question"});
 	}
 
+	var cursor;
 	$scope.changeColor = function(day) {
+		cursor = day.i - 4;
 		for(var i = 0; i < 4; i++) {
 			$scope.dates[(day.i + i) % 10].icon = "home";
 		}
@@ -36,6 +38,7 @@ angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap', 'angularMoment'])
 		for(; i < 10; i++) {
 			$scope.dates[(day.i + i) % 10].icon = "night";
 		}
+		$scope.$broadcast('refreshDatepickers');
 	};
   
 	var oneDay = 24*60*60*1000;
@@ -44,10 +47,10 @@ angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap', 'angularMoment'])
 		if (mode === 'day') {
 			var dayToCheck = new Date(date);
 			dayToCheck.setHours(0,0,0,0);
+			today.setHours(0,0,0,0);
 			if (dayToCheck.getTime() >= today.getTime()) {
 				var diffDays = Math.round((dayToCheck.getTime() - today.getTime())/(oneDay));
-
-				switch(diffDays % 10) {
+				switch((diffDays + 10 - cursor) % 10) {
 					case 0:
 					case 1:
 					case 2:
@@ -63,15 +66,10 @@ angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap', 'angularMoment'])
 					case 9:
 						return 'night-circle';
 					default:
-						return 'hey';
+						return '';
 				} 
 			}
 		}
 	};
-
-	function getPosition() {
-	
-	}
-
 
 }]);
