@@ -23,20 +23,33 @@ angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap', 'angularMoment'])
 		$scope.dates.push({date:tomorrow,i:i,icon:"question"});
 	}
 
-	var cursor;
-	$scope.changeColor = function(day) {
-		cursor = day.i - 4;
+	var cursor = 1;
+	var active = false;
+
+	$scope.changeColor = drawDays;
+
+	$scope.back = function() {
+		drawDays(--cursor);
+	}
+
+	$scope.next = function() {
+		drawDays(++cursor);
+	}
+
+	function drawDays(dayi) {
+		active = true;
+		cursor = (dayi + 10) % 10;
 		for(var i = 0; i < 4; i++) {
-			$scope.dates[(day.i + i) % 10].icon = "home";
+			$scope.dates[(dayi + i) % 10].icon = "home";
 		}
 		for(; i < 6; i++) {
-			$scope.dates[(day.i + i) % 10].icon = "morning";
+			$scope.dates[(dayi + i) % 10].icon = "morning";
 		}
 		for(; i < 8; i++) {
-			$scope.dates[(day.i + i) % 10].icon = "afternoon";
+			$scope.dates[(dayi + i) % 10].icon = "afternoon";
 		}
 		for(; i < 10; i++) {
-			$scope.dates[(day.i + i) % 10].icon = "night";
+			$scope.dates[(dayi + i) % 10].icon = "night";
 		}
 		$scope.$broadcast('refreshDatepickers');
 	};
@@ -44,13 +57,13 @@ angular.module('myApp.view1', ['ngRoute', 'ui.bootstrap', 'angularMoment'])
 	var oneDay = 24*60*60*1000;
 
 	$scope.getDayClass = function(date, mode) {
-		if (mode === 'day') {
+		if (mode === 'day' && active) {
 			var dayToCheck = new Date(date);
 			dayToCheck.setHours(0,0,0,0);
 			today.setHours(0,0,0,0);
 			if (dayToCheck.getTime() >= today.getTime()) {
 				var diffDays = Math.round((dayToCheck.getTime() - today.getTime())/(oneDay));
-				switch((diffDays + 10 - cursor) % 10) {
+				switch((diffDays + 10 - (cursor - 4)) % 10) {
 					case 0:
 					case 1:
 					case 2:

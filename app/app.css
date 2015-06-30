@@ -51,7 +51,6 @@ h5 {
 
 .container {
   text-align:center;
-  margin-bottom: 30px;
   margin-top: 40px;
 }
 
@@ -78,7 +77,7 @@ h5 {
 
 .question:before {
   content: "\f128";
-  background-color: #827AB6;
+  background-color: #ddd;
 }
 
 .home:before {
@@ -88,17 +87,20 @@ h5 {
 
 .morning:before {
   content: "\f0f4";
-  background-color: #FFDD54;
+  background-color: rgba(255, 221, 84, 0.2);
+  color:grey;
 }
 
 .afternoon:before {
   content: "\f185";
-  background-color: #F24141;
+  background-color: rgba(242, 103, 22, 0.2);
+  color:grey;
 }
 
 .night:before {
   content: "\f186";
-  background-color: #428bca;
+  background-color: rgba(242, 65, 65, 0.2);
+  color:grey;
 }
 
 button span {
@@ -115,18 +117,21 @@ button span {
   background-color: #FFDD54;
   border-radius: 32px;
   font-weight: 900;
+  opacity: 0.2;
 }
 
 .afternoon-circle button span {
-  background-color: #F24141;
+  background-color: #F26716;
   border-radius: 32px;
   font-weight: 900;
+  opacity: 0.2;
 }
 
 .night-circle button span {
-  background-color: #428bca;
+  background-color: #F24141;
   border-radius: 32px;
   font-weight: 900;
+  opacity: 0.2;
 }
 
 .text-muted{
@@ -135,6 +140,22 @@ button span {
   color: black;
 }
 
-.days:nth-child(6) {
+.text-info {
   font-weight: 900;
+  color:black;
+  text-decoration: underline;
+}
+
+.days:nth-child(6) {  
+  font-weight: 900;
+}
+
+button .btn .btn-default .btn-sm {
+  padding-top:10px;
+  margin-top:10px;
+} 
+
+.buttons {
+  text-align:center;
+  vertical-align:bottom;
 }

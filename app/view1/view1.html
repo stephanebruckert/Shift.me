@@ -1,24 +1,31 @@
 <div class="container bs-docs-container col-md-10 col-md-offset-1">
-	<h3>What's your work plan this week?</h3>
+	<h3>How is your '5 x 8' shift plan defined <b>this week?</b></h3>
 	<div class="table-responsive">
 		<table class="table">
 		 	<tr>
 		 		<td><h4>{{ dates[0].date | date:'MMMM'}}</h4></td>
 		 		<td class="days" ng-repeat="day in dates" ng-mouseenter="changeColor(day)">
-		 			{{ day.date | date:'EEEE' }}<br />{{ day.date | date:'dd' }}
+		 			{{ day.date | date:'EEE' }}<br />{{ day.date | date:'dd' }}
 				</td>
+				<td></td>
 		 	</tr>
 		 	<tr>
-		 		<td></td>
-		 		<td ng-repeat="day in dates" ng-mouseenter="changeColor(day)">
+   				<td>
+   					<div style="margin-top: 10px;">
+   					<button type="button" class="btn btn-default btn-sm" ng-click="back()"><i class="glyphicon glyphicon-chevron-left"></i></button>
+	 				<button type="button" class="btn btn-default btn-sm" ng-click="next()"><i class="glyphicon glyphicon-chevron-right"></i></button>
+	 				</div>
+	 			</td>
+		 		<td ng-repeat="day in dates" ng-mouseenter="changeColor(day.i)">
 		 			<div class="icon {{ day.icon }}"></div>
 				</td>
+				<td></td>
 		 	</tr>
 	 	</table>
 	 </div>
 </div>
 <div class="container bs-docs-container col-md-10 col-md-offset-1">
- 	<h3>Here is your calendar</h3>
+ 	<h3>Your calendar for the <b>next months</b></h3>
  	<div style="display:inline-block; min-height:290px;">
       <datepicker ng-model="dt" min-date="minDate" show-weeks="false" class="well well-sm" custom-class="getDayClass(date, mode)"></datepicker>
     </div>
