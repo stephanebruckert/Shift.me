@@ -87,19 +87,19 @@ h5 {
 
 .morning:before {
   content: "\f0f4";
-  background-color: rgba(255, 221, 84, 0.2);
+  background-color: rgba(255, 221, 84, 0.4);
   color:grey;
 }
 
 .afternoon:before {
   content: "\f185";
-  background-color: rgba(242, 103, 22, 0.2);
+  background-color: rgba(242, 103, 22, 0.4);
   color:grey;
 }
 
 .night:before {
   content: "\f186";
-  background-color: rgba(242, 65, 65, 0.2);
+  background-color: rgba(242, 65, 65, 0.4);
   color:grey;
 }
 
@@ -117,25 +117,25 @@ button span {
   background-color: #FFDD54;
   border-radius: 32px;
   font-weight: 900;
-  opacity: 0.2;
+  opacity: 0.4;
 }
 
 .afternoon-circle button span {
   background-color: #F26716;
   border-radius: 32px;
   font-weight: 900;
-  opacity: 0.2;
+  opacity: 0.4;
 }
 
 .night-circle button span {
   background-color: #F24141;
   border-radius: 32px;
   font-weight: 900;
-  opacity: 0.2;
+  opacity: 0.4;
 }
 
 .text-muted{
-  opacity: 0.2;
+  opacity: 0.4;
   border-radius: 32px;
   color: black;
 }
